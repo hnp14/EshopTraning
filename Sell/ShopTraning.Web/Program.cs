@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using ShopTraning.Web.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ShopDb>(options =>
+{
+    options.UseSqlServer("Data Source=.;Initial Catalog=ShopDb;Integrated Security = true;TrustServerCertificate=true");
+});
 
 var app = builder.Build();
 

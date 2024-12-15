@@ -1,32 +1,26 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using ShopTraning.Web.Models;
 
 namespace ShopTraning.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
+        [Route("")]
         public IActionResult Index()
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        [Route("contact-us")]
+        public IActionResult ContactUs()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [Route("about-us")]
+        public IActionResult AboutUs()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
+
     }
 }
